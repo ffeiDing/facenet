@@ -1,9 +1,9 @@
 # 实验记录
-''
+```
 cd /mnt/disk/facenet
 export PYTHONPATH=/mnt/disk/facenet/src
 python src/align/align_dataset_mtcnn.py /mnt/disk/datasets/CASIA-maxpy-clean/ /mnt/disk/datasets/casia_maxpy_mtcnnpy_182 --image_size 182 --margin 44
-''
+```
 
 # Face Recognition using Tensorflow [![Build Status][travis-image]][travis]
 
