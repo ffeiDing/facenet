@@ -6,7 +6,10 @@ echo 'export PATH=/usr/bin/:$PATH' >> .bashrc
 # 训练
 cd /mnt/disk/facenet
 export PYTHONPATH=/mnt/disk/facenet/src
+# 人脸检测与定位
 python src/align/align_dataset_mtcnn.py /mnt/disk/datasets/CASIA-maxpy-clean/ /mnt/disk/datasets/casia_maxpy_mtcnnpy_182 --image_size 182 --margin 44
+# train
+python src/train_softmax.py --logs_base_dir /mnt/disk/logs/facenet/ --models_base_dir /mnt/disk/models/facenet/ --data_dir /mnt/disk/datasets/casia_maxpy_mtcnnpy_182 --image_size 160 --model_def models.inception_resnet_v1 --lfw_dir /mnt/disk/datasets/lfw/lfw_mtcnnalign_160 --optimizer RMSPROP --learning_rate -1 --max_nrof_epochs 80 --keep_probability 0.8 --random_crop --random_flip --learning_rate_schedule_file data/learning_rate_schedule_classifier_casia.txt --weight_decay 5e-5 --center_loss_factor 1e-2 --center_loss_alfa 0.9 &
 ```
 
 # Face Recognition using Tensorflow [![Build Status][travis-image]][travis]
