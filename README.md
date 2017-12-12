@@ -18,6 +18,12 @@ tensorboard --logdir=/mnt/disk/logs/facenet
 # 打开http://127.0.0.1:16006查看
 ```
 
+```
+# 人脸检测
+export PYTHONPATH=/mnt/disk/facenet/src
+for N in {1..4}; do python src/align/align_dataset_mtcnn.py /share/dataset/train/1_1_04_0/prob /mnt/datasets/dongnanmen_160 --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25 & done
+```
+
 # Face Recognition using Tensorflow [![Build Status][travis-image]][travis]
 
 [travis-image]: http://travis-ci.org/davidsandberg/facenet.svg?branch=master
